@@ -18,9 +18,23 @@ const couponRoutes = require('./routes/couponRoutes');
 const orderRoutes = require('./routes/orderRoutes');
 const productRoutes = require('./routes/productRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
-const uploadRoutes = require('./routes/uploadRoutes');
 const userRoutes = require('./routes/userRoutes');
 const adminDashboardRoutes = require('./routes/adminDashboardRoutes');
+const userOrderRoutes = require('./routes/userOrderRoutes');
+
+// Cors
+// const allowedOrigins = [process.env.ADMIN_URL, process.env.STORE_URL]
+// const corsOptions = {
+//   origin: function (origin, callback) {
+//     if (allowedOrigins.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
+
+// app.use(cors(corsOptions));
 
 // middleware
 app.use(cors());
@@ -37,14 +51,14 @@ app.get("/", (req, res) => res.send("Api successfully"));
 app.use('/api/admin', adminRoutes);
 app.use('/api/brand', brandRoutes);
 app.use('/api/categoryRoutes', categoryRoutes);
-app.use('/api/cloudinary', cloudinaryRoutes) 
-app.use('/api/coupon', couponRoutes) 
-app.use('/api/order', orderRoutes ) 
-app.use('/api/product', productRoutes) 
-app.use('/api/review', reviewRoutes ) 
-app.use('/api/user', userRoutes) 
-app.use('/api/dashboard', adminDashboardRoutes) 
-
+app.use('/api/cloudinary', cloudinaryRoutes);
+app.use('/api/coupon', couponRoutes);
+app.use('/api/order', orderRoutes);
+app.use('/api/product', productRoutes);
+app.use('/api/review', reviewRoutes);
+app.use('/api/user', userRoutes);
+app.use('/api/dashboard', adminDashboardRoutes);
+app.use('/api/user-order', userOrderRoutes);
 
 app.listen(PORT, () => console.log(`server running on port ${PORT}`));
 
